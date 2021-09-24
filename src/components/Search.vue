@@ -1,9 +1,12 @@
 <template>
   <div>
-    <input type="text" :placeholder="placeholder" v-model.trim="inputValue" />
-    <button type="submit" @click="emitSearch">
-      {{ buttonText || "Cerca" }}
-    </button>
+    <input
+      type="text"
+      :placeholder="placeholder"
+      v-model.trim="inputValue"
+      @keyup.enter="emitSearch"
+    />
+    <button type="submit" @click="emitSearch">Cerca</button>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
       inputValue: "",
     };
   },
-  props: ["placeholder", "buttonText"],
+  props: ["placeholder"],
   methods: {
     emitSearch() {
       this.$emit("search", this.inputValue);
@@ -24,5 +27,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped lang="scss">
+@import "../scss/_vars.scss";
+
+input,
+button {
+  font-size: 20px;
+  margin: 0px 5px;
+}
 </style>
