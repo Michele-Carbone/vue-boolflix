@@ -4,20 +4,6 @@
     <div>
       <Card v-for="item in combineResults" :key="item.id" :item="item" />
     </div>
-    <!--
-    <ul v-for="item in combineResults" :key="item.id">
-      <li>{{ item.title || item.name }}</li>
-      <li>{{ item.original_title || item.original_name }}</li>
-      <li>
-        <img
-          v-if="flags.includes(item.original_language)"
-          :src="getFlag(item.original_language)"
-          :alt="item.title || item.name"
-        />
-        <span v-else>{{ item.original_language }}</span>
-      </li>
-      <li>{{ item.vote_average }}</li>
-    </ul>-->
   </section>
 </template>
 
@@ -29,18 +15,6 @@ export default {
     Card,
   },
   props: ["combineResults", "title"],
-  /*data() {
-    return {
-      flags: ["en", "it"],
-    };
-  },
-  methods: {
-    //lingua
-
-    getFlag(lang) {
-      return require(`@/assets/images/${lang}.png`);
-    },
-  },*/
 };
 </script>
 
